@@ -2,9 +2,11 @@
 # The filesystem that contains the filesystem e2fsck binary (typically /system) cannot
 # specify 'check', and must come before any filesystems that do specify 'check'
 
-#<src>                                      <mnt_point>             <type>  <mnt_flags and options>                                                                           <fs_mgr_flags>
+system                                       /system                 erofs   ro                                                                                                wait,logical,first_stage_mount
 system                                       /system                 ext4    ro,barrier=1,discard                                                                              wait,logical,first_stage_mount
+system_ext                                   /system_ext             erofs   ro                                                                                                wait,logical,first_stage_mount
 system_ext                                   /system_ext             ext4    ro,barrier=1,discard                                                                              wait,logical,first_stage_mount
+product                                      /product                erofs   ro                                                                                                wait,logical,first_stage_mount
 product                                      /product                ext4    ro,barrier=1,discard                                                                              wait,logical,first_stage_mount
 vendor                                       /vendor                 erofs   ro                                                                                                wait,logical,first_stage_mount
 odm                                          /odm                    erofs   ro                                                                                                wait,logical,first_stage_mount
